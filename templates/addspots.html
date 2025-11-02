@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ParV - Spot Addition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'start.css') }}">
+  </head>
+  <body class = "login">
+    <div class = "lbox">
+      <div class = "text">
+        <h1>ParV</h1>
+        <h3>Addition of Parking Lot</h3>
+      </div>
+      <br>
+      <form method="POST">
+        <div class = "input">
+          <input type = "text" placeholder = "Parking Lot Name" name = "plnm">
+        </div>
+        <div class = "input">
+          <input type = "text" placeholder = "Address" name = "pladd">
+        </div>
+        <div class = "input">
+          <input type = "text" placeholder = "Pincode" name = "plcode">
+        </div>
+        <div class = "input">
+          <input type = "number" placeholder = "Price per hour" name = "plpr">
+        </div>
+        <div class = "input">
+          <input type = "number" placeholder = "Maximum Number of Spots" name = "mxsp">
+        </div>
+        <center>
+        <input type = "submit" class = "btn">
+        <a href="{{ url_for('AdminHome') }}">
+        <input type = "button" class = "btn" value = "Close">
+        </a>
+        </center>
+      </form>
+    </div>
+  </body>
+</html>
