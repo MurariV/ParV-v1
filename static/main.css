@@ -1,0 +1,664 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Ink Free";
+}
+
+body {
+    background: url("bg2.jpg") no-repeat;
+    background-position: center;
+    background-size: auto;
+}
+
+nav{
+    margin: 10px;
+    background-color: #ff8585;
+    border-radius: 20px;
+}
+
+nav form .button{
+    margin: 5px;
+    padding: 7px;
+    border: solid;
+    border-color: #000000;
+    border-radius: 10px;
+    background-color: #b62121;
+    color: #ffffff;   
+}
+
+nav form .button:hover{
+    cursor: pointer;
+    background-color: #6c0000;
+}
+
+.content {
+    overflow: auto;
+    margin: 10px;
+    padding: 50px;
+    width: 45%;
+    border: groove 2px rgb(130, 77, 77);
+    border-radius: 60px;
+    backdrop-filter: blur(5000px);
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.content .btn{
+    padding: 5px;
+    width: auto;
+    background-color: #ffffff;
+    border: 1px solid #00c8ff;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+    font-weight: 600;
+}
+
+.content .btn:hover{
+    padding: 5px;
+    width: auto;
+    background-color: #00c8ff;
+    border: 1px solid #00c8ff;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: black;
+    font-weight: 600;
+}
+
+.content center{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.content .input{
+    padding: 20px;
+    font-size: 25px;
+}
+
+.content select{
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.content h2{
+    color: white;
+}
+
+.content h2{
+    color: white;
+}
+
+.content table{
+    border: transparent;
+}
+
+.content tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+    
+.content table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.content tr:last-child td:first-child{
+    border-bottom-left-radius: 10px;
+}
+    
+.content table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.cnttg1{
+    display: flex;
+    justify-content: center;
+}
+
+.content2 {
+    overflow: auto;
+    margin: 10px;
+    padding: 50px;
+    width: 50%;
+    height: 550px;
+    border: groove 2px rgb(130, 77, 77);
+    border-radius: 60px;
+    backdrop-filter: blur(5000px);
+    background-color: transparent;
+    color: white;
+}
+
+.content2 h2{
+    color: white;
+}
+
+.content2 .usrprofile{
+    color: white;
+    font-size: 10px;
+}
+
+.content2.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+    overflow: auto;
+    border: groove 2px rgb(130, 77, 77);
+    border-radius: 60px;
+    backdrop-filter: blur(5000px);
+    background-color: transparent;
+}
+
+.usrprofile .tg1{
+    color: green;
+}
+
+.usrprofile .tg2{
+    color: blue;
+}
+
+.content3 {
+    overflow: auto;
+    margin: 10px;
+    padding: 50px;
+    width: 30%;
+    height: 100%;
+    border: groove 2px rgb(130, 77, 77);
+    border-radius: 60px;
+    backdrop-filter: blur(5000px);
+    background-color: transparent;
+}
+
+.content3 h2{
+    color: white;
+}
+
+.content3 table{
+    border: transparent;
+}
+
+.content3 tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+    
+.content3 table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.content3 tr:last-child td:first-child{
+    border-bottom-left-radius: 10px;
+}
+    
+.content3 table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.content4 {
+    overflow: auto;
+    margin: 10px;
+    padding: 50px;
+    width: 70%;
+    border: groove 2px rgb(130, 77, 77);
+    border-radius: 60px;
+    backdrop-filter: blur(5000px);
+    background-color: transparent;
+    scrollbar-width: none;
+}
+
+.content4 h2{
+    color: white;
+}
+
+.content4 h4{
+    color: white;
+}
+
+.content4 select{
+    padding: 5px;
+    margin: 0px 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.h222 {
+    margin: 20px;
+}
+
+.accordion {
+    background-color: #7cd8ff;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+  
+.active, .accordion:hover {
+    background-color: #a7fffe; 
+}
+  
+.panel {
+    padding: 10px 18px;
+    display: none;
+    background-color: transparent;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.popup {
+    position:absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    padding: 35px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);
+    padding: 40px 30px;
+    width: 28%;
+    border: 2px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-radius: 30px;
+    backdrop-filter: blur(30px);
+    background-color: transparent;
+    margin: 5%;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.popup .text {
+    text-align: center;
+    color: aliceblue;
+}
+
+.popup .input {
+    text-align: center;
+    width: 95%;
+    height: 50px;
+    margin: 30px 0px
+}
+
+.input input {
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border: 2px solid #ff9090;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #000000;
+    padding: 0px 10px;
+}
+
+.input input::placeholder {
+    color: #000000;
+}
+
+.popup .ele{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup .btn {
+    margin: 10px;
+    width: 25%;
+    height: 30px;
+    background-color: #ffffff;
+    border: 1px solid #00c8ff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.popup .btn:hover {
+    margin: 10px;
+    width: 25%;
+    height: 30px;
+    background-color: #00c8ff;
+    border: 1px solid #00c8ff;
+    border-radius: 10px;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.popup.active{
+    top: 45%;
+    visibility: visible;
+    opacity: 1;
+    overflow: auto;
+}
+
+.content3 .btn {
+    margin: 10px;
+    background-color: #ffffff;
+    border: 1px solid #00c8ff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.content3 .btn:hover {
+    margin: 10px;
+    background-color: #00c8ff;
+    border: 1px solid #000405;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.cnttg1.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+    overflow: auto;
+    border: groove 2px rgb(130, 77, 77);
+    border-radius: 60px;
+    backdrop-filter: blur(5000px);
+    background-color: transparent;
+}
+
+.spwin{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.spots{
+    overflow: auto;
+    margin: 10px;
+    padding: 50px;
+    width: auto;
+    border: groove 2px rgb(130, 77, 77);
+    border-radius: 60px;
+    backdrop-filter: blur(5000px);
+    background-color: transparent;
+}
+
+.spots .htxt{
+    color: white;
+}
+
+.sact .edit{
+    margin: 10px;
+    padding: 5px;
+    background-color: rgb(253, 255, 145);
+    border: 1px solid #000405;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sact .del{  
+    padding: 5px;
+    background-color: rgb(255, 110, 110);
+    border: 1px solid #000405;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.occ{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.occ .sbtn{
+    margin: 5px;
+    width: auto;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #000405;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.content4 .btn {
+    margin: 10px;
+    background-color: #ffffff;
+    border: 1px solid #00c8ff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.content4 .btn:hover {
+    margin: 10px;
+    background-color: #00c8ff;
+    border: 1px solid #000405;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.popup1 {
+    position: fixed;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    padding: 35px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);
+    padding: 40px 30px;
+    width: 28%;
+    border: 2px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-radius: 30px;
+    backdrop-filter: blur(30px);
+    background-color: transparent;
+    margin: 5%;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.popup1 .text {
+    text-align: center;
+    color: aliceblue;
+}
+
+.popup1 .input {
+    text-align: center;
+    width: 95%;
+    height: 50px;
+    margin: 30px 0px
+}
+
+.popup1 .ele{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup1 .btn {
+    margin: 10px;
+    width: 25%;
+    height: 30px;
+    background-color: #ffffff;
+    border: 1px solid #00c8ff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.popup1 .btn:hover {
+    margin: 10px;
+    width: 25%;
+    height: 30px;
+    background-color: #00c8ff;
+    border: 1px solid #00c8ff;
+    border-radius: 10px;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.popup1.active{
+    top: 45%;
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup2 {
+    position: fixed;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    padding: 35px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.25);
+    padding: 40px 30px;
+    width: 28%;
+    border: 2px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-radius: 30px;
+    backdrop-filter: blur(30px);
+    background-color: transparent;
+    margin: 5%;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.popup2 .text {
+    text-align: center;
+    color: aliceblue;
+}
+
+.popup2 .input {
+    text-align: center;
+    width: 95%;
+    height: 50px;
+    margin: 30px 0px
+}
+
+.popup2 .ele{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup2 .btn {
+    margin: 10px;
+    width: 25%;
+    height: 30px;
+    background-color: #ffffff;
+    border: 1px solid #00c8ff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.popup2 .btn:hover {
+    margin: 10px;
+    width: 25%;
+    height: 30px;
+    background-color: #00c8ff;
+    border: 1px solid #00c8ff;
+    border-radius: 10px;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+}
+
+.popup2.active{
+    top: 45%;
+    visibility: visible;
+    opacity: 1;
+}
+
+.content5 {
+    overflow: auto;
+    margin: 10px;
+    padding: 50px;
+    width: 80%;
+    border: groove 2px rgb(130, 77, 77);
+    border-radius: 60px;
+    backdrop-filter: blur(5000px);
+    background-color: transparent;
+}
+
+.content5 center{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.content5 .input{
+    padding: 20px;
+    font-size: 25px;
+}
+
+.content5 select{
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.content5 h2{
+    color: white;
+}
+
+.content5 h2{
+    color: white;
+}
+
+.content5 table{
+    border: transparent;
+}
+
+.content5 tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+    
+.content5 table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.content5 tr:last-child td:first-child{
+    border-bottom-left-radius: 10px;
+}
+    
+.content5 table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.content10 {
+    margin: 10px;
+    padding: 50px;
+    width: 80%;
+    border: groove 2px rgb(130, 77, 77);
+    border-radius: 60px;
+    backdrop-filter: blur(5000px);
+    background-color: transparent;
+    color: white;
+}
