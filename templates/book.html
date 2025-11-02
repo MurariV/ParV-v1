@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ParV - Spot Booking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'start.css') }}">
+  </head>
+  <body class = "login">
+    <div class = "lbox">
+      <div class = "text">
+        <h1>ParV</h1>
+        <h2>Book your Spot</h2>
+      </div>
+      <br>
+      <form method="POST">
+        <div class = "text">
+          <h3><b>Prime Location</b>: {{loc.lname}}</h3>
+        </div>
+        <div class = "text">
+          <h3><b>Address</b>: {{lot.paddress}}</3>
+        </div>
+        <div class = "input">
+          <input type = "text" placeholder = "Vehicle Number" name = "vehno">
+        </div>
+        <center>
+        <input type = "submit" class = "btn">
+        <a href="{{ url_for('UserHome') }}">
+        <input type = "button" class = "btn" value = "Close">
+        </a>
+        </center>
+      </form>
+    </div>
+  </body>
+</html>

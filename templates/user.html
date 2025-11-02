@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ParV - User Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'start.css') }}">
+  </head>
+  <body>
+    <div  class = "login">
+    <div class = "lbox">
+      <div class = "text">
+        <h1>Welcome to ParV</h1>
+        <h3>Login</h3>
+      </div>
+      <form method='POST'>
+        <div class = "input">
+          <input type = "email" placeholder = "Mail ID" name = "email">
+        </div>
+        <div class = "input">
+          <input type = "password" placeholder = "Password" name = "pwd">
+        </div>
+        <center class = "ele">
+        <input type = "submit" class = "btn">
+        <div class = "Next">
+          <a href = "{{ url_for('Registration') }}">New User?</a>
+        </div>
+        </center>
+        <div class = "admin">
+          <a href = "{{ url_for('AdminLogin') }}">Admin Login</a>
+        </div>
+      </form>
+    </div>
+    </div>
+  </body>
+</html>

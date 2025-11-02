@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ParV - Admin Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'main.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <!--NAVBAR-->
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand"><b>ParV Administrator</b></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('AdminHome') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('AdminUsers') }}">Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('AdminSummary') }}">Summary</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('AdminProfile') }}">Profile</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <a href="{{ url_for('LogOut') }}">
+                <input type="button" class= "button" value="Log Out" />
+              </a>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <!--MAIN CONTENT-->
+      <div class = 'cnttg1'>
+      <div class = 'content3'>
+        <center>
+          <h2>List of Prime Locations</h2>
+        </center>
+        <br>
+        <div class="table-container">
+          {% for loc in locs %}
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Spot ID</th>
+                <th scope="col">Prime Location</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row">{{loc.lid}}</td>
+                <td>{{loc.lname}}</td>
+                <td><a href="{{url_for('DelLoc', lo = loc.lid)}}" class = "btn">Delete</a></td>
+              </tr>
+            </tbody>
+          </table>
+          {% endfor %}
+          <a href="#" class = "btn" id = "editProf">+ Prime Location</a>
+        </div>
+      </div>
+      <div class = 'content4'>
+        <center style="display: flex; justify-content: center; align-items: center;">
+          <h2>Parking Status At: </h2>
+            <div class = "input">
+                <form method="post" action = "/admin/home/select">
+                <select name = 'ans'>
+                    <option value="">Please Select a Location</option>
+                    {% for loc in locs %}
+                    <option value="{{loc.lname}}">{{loc.lname}}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" class="btn">Go</button>
+                </form>
+            </div>
+        </center>
+        <center>
+          <h4>Selected Lacation: <b>{{locate}}</b></h4>
+          <a href="{{ url_for('AddSpots', te = temp.lid )}}" class = "btn">+ Parking Lots</a>
+        </center>
+        <div  class = 'spwin'>
+          {% for lot in lots %}
+          <div class = 'spots' id="parkingSlotsDisplay">
+            <center>
+            <div class = 'htxt'>
+              <h3>{{ lot.pname }}</h3>
+            </div>
+            <div class = 'sact'>
+              <a href="{{ url_for('EditSpots', l = lot.pid) }}" class = 'edit'>Edit </a>
+              <a href="{{ url_for('DelLot', l = lot.pid )}}" class = 'del'>Delete</a>
+            </div>
+            </center>
+            <br><br>
+            
+            <div class = "occ">
+              {% for i in locc %}
+              {% if i.parking_lot_id == lot.pid %}
+              {% if i.ores == 0 %}
+              <a href = "#" class = "sbtn occAvBtn" style="background-color: rgb(120, 255, 120);">A</a>
+              {% endif %}
+              {% if i.ores == 1 %}
+              <a href="#" class="sbtn occOcBtn"
+                style="background-color: rgb(120, 255, 253)";
+                data-name="{{ i.user.name }}"
+                data-email="{{ i.user.email }}"
+                data-location="{{ i.user.ploc }}"
+                data-address="{{ i.user.address }}"
+                data-pincode="{{ i.user.pinc }}">
+                O
+              </a>
+              {% endif %}
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          {% endfor %}
+          </div>
+
+      </div>
+      </div>
+      
+      <!--POP UP: ADD PRIME LOCATION-->
+      <div class = "popup">
+        <div class = "text">
+          <h1>ParV</h1>
+          <h3>Add a Prime Location</h3>
+        </div>
+        <br>
+        <form method='POST' action = "/admin/home/input">
+          <div class = "input">
+            <input type = "text" placeholder = "Location Name/ Area" name = "locnm">
+          </div>
+          <center class = "ele">
+          <input type = "submit" class = "btn">
+          <a href = "#" class = "btn" id = "closePopup">Close</a>
+          </center>
+        </form>
+      </div>
+
+      <!--POP UP: OCCUPANCY STATUS = Available-->
+      <div class = "popup1">
+        <div class = "text">
+          <h1>ParV</h1>
+          <h3>Occupancy Status</h3>
+        </div>
+        <br>
+        <div class = "text">
+          <h3><b>Status</b>: Available</h3>
+        </div>
+        <br>
+        <form method='POST'>
+          <center class = "ele">
+          <a href = "#" class = "btn" id = "closePopup1">Close</a>
+          </center>
+        </form>
+      </div>
+
+      <!--POP UP: OCCUPANCY STATUS = Occupied-->
+      <div class = "popup2">
+        <div class = "text">
+          <h1>ParV</h1>
+          <h3>Occupancy Status</h3>
+        </div>
+        <br>
+        <div class = "text">
+        <h3><b>Status</b>: Occupied</h3>
+        <br>
+        <div class="text"><h3><b>Name</b>: <span id="popup2-name"></span></h3></div>
+        <div class="text"><h3><b>Email</b>: <span id="popup2-email"></span></h3></div>
+        <div class="text"><h3><b>Location</b>: <span id="popup2-location"></span></h3></div>
+        <div class="text"><h3><b>Address</b>: <span id="popup2-address"></span></h3></div>
+        <div class="text"><h3><b>Pincode</b>: <span id="popup2-pincode"></span></h3></div>
+        <br>
+        <form method='POST'>
+          <center class = "ele">
+          <a href = "#" class = "btn" id = "closePopup2">Close</a>
+          </center>
+        </form>
+      </div>
+
+
+      <script>
+      const container = document.querySelector('.cnttg1');
+      const popup = document.querySelector('.popup');
+      const popup1 = document.querySelector('.popup1');
+      const popup2 = document.querySelector('.popup2');
+
+      const editProfBtn = document.getElementById('editProf');
+      const closePopupBtn = document.getElementById('closePopup');
+      const closePopup1Btn = document.getElementById('closePopup1');
+      const closePopup2Btn = document.getElementById('closePopup2');
+
+      const toggle = () => {
+        container.classList.toggle('active');
+        popup.classList.toggle('active');
+      };
+
+      const toggle1 = () => {
+        container.classList.toggle('active');
+        popup1.classList.toggle('active');
+      };
+
+      const toggle2 = () => {
+        container.classList.toggle('active');
+        popup2.classList.toggle('active');
+      };
+
+      editProfBtn.addEventListener('click', toggle);
+      closePopupBtn.addEventListener('click', toggle);
+      closePopup1Btn.addEventListener('click', toggle1);
+      closePopup2Btn.addEventListener('click', function () {
+        container.classList.remove('active');
+        popup2.classList.remove('active');
+      });
+
+
+      // Attach event to all A buttons
+      document.querySelectorAll('.occAvBtn').forEach(btn => {
+        btn.addEventListener('click', toggle1);
+      });
+
+      document.querySelectorAll('.occOcBtn').forEach(btn => {
+        btn.addEventListener('click', function () {
+          // Fill user details into popup2
+          document.getElementById('popup2-name').textContent = this.dataset.name;
+          document.getElementById('popup2-email').textContent = this.dataset.email || 'N/A';
+          document.getElementById('popup2-location').textContent = this.dataset.location || 'N/A';
+          document.getElementById('popup2-address').textContent = this.dataset.address || 'N/A';
+          document.getElementById('popup2-pincode').textContent = this.dataset.pincode || 'N/A';
+
+          // Show popup2
+          container.classList.add('active');
+          popup2.classList.add('active');
+        });
+      });
+      </script>
+
+    <!--BOOTSTRAP-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </body>
+</html>

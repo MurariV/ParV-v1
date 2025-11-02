@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ParV - Release Spot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'start.css') }}">
+  </head>
+  <body class = "login">
+    <div class = "lbox">
+      <div class = "text">
+        <h1>ParV</h1>
+        <h3>Release your Spot</h3>
+      </div>
+      <br>
+        <div class = "text">
+          <h3><b>Vehicle Number</b>: {{occ.oveh}}</h3>
+        </div>
+        <div class = "text">
+          <h3><b>Prime Location</b>: {{loc.lname}}</h3>
+        </div>
+        <div class = "text">
+          <h3><b>Address</b>: {{lot.paddress}}</h3>
+        </div>
+        <div class = "text">
+          <h3><b>Parking Time</b>: {{occ.otstp}}</h3>
+        </div>
+        <div class = "text">
+          <h3><b>Release Time</b>: {{occ.oetp}}</h3>
+        </div>
+        <br>
+        <center>
+        <a href="#" class = "tg1" id = "editProf">
+            <input type = "button" class = "btn" value = "Confirm">
+        </a>
+        <a href="{{ url_for('UserHome') }}">
+            <input type = "button" class = "btn" value = "Close">
+        </a>
+        </center>
+    </div>
+
+    <!--POP UP: Price-->
+      <div class = "popup">
+        <div class = "text">
+          <h1>ParV</h1>
+          <h3>Price of Spot</h3>
+        </div>
+        <br>
+        <div class = "text">
+          <h3><b>Price</b>: {{cost}}</h3>
+        </div>
+        <br>
+        <form method='POST'>
+          <center class = "ele">
+          <input type = "submit" class = "btn">
+          </center>
+        </form>
+      </div>
+      
+    <script>
+      const container = document.querySelector('.lbox');
+      const popup = document.querySelector('.popup');
+      const editProfBtn = document.getElementById('editProf');
+      const closePopupBtn = document.getElementById('closePopup');
+
+      const toggle = () => {
+        container.classList.toggle('active');
+        popup.classList.toggle('active');
+      };
+
+      editProfBtn.addEventListener('click', toggle);
+      closePopupBtn.addEventListener('click', toggle);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ParV - Edit Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'start.css') }}">
+  </head>
+  <body class = "login">
+    <div class = "lbox">
+      <div class = "text">
+        <h1>ParV</h1>
+        <h3>Edit Profile</h3>
+      </div>
+      <br>
+      <form method='POST'>
+        <div class = "input">
+          <input type = "email" placeholder = "Mail ID" name = "email">
+        </div>
+        <div class = "input">
+            <input type = "text" placeholder = "Full Name" name = "nm">
+        </div>
+        <div class = "input">
+            <input type = "date" placeholder = "Date of Bith" name = "dob">
+        </div>  
+        <center class = "ele">
+        <input type = "submit" class = "btn">
+        </center>
+      </form>
+    </div>
+  </body>
+</html>

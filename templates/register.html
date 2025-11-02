@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ParV - Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'start.css') }}">
+  </head>
+  <body class = "login">
+    <div class = "lbox">
+      <div class = "text">
+        <h1>Welcome to ParV</h1>
+        <h3>Register</h3>
+      </div>
+      <form method='POST'>
+        <div class = "input">
+            <input type = "text" placeholder = "Full Name" name = "nm">
+        </div>
+        <div class = "input">
+            <input type = "date" placeholder = "Date of Bith" name = "dob">
+        </div>
+        <div class = "input">
+          <input type = "email" placeholder = "Mail ID" name = "email">
+        </div>
+        <div class = "input">
+          <input type = "text" placeholder = "Address" name = "address">
+        </div>
+        <div class = "input">
+          <input type = "text" placeholder = "Prime Location" name = "location">
+        </div>
+        <div class = "input">
+          <input type = "text" placeholder = "Pincode" name = "pcode">
+        </div>
+        <div class = "input">
+          <input type = "password" placeholder = "Password" name = "pwd">
+        </div>
+        <div class = "input">
+            <input type = "password" placeholder = "Retype Password" name = "rpwd">
+        </div>  
+        <center class = "ele">
+        <input type = "submit" class = "btn">
+        <div class = "Next">
+          <a href = "{{ url_for('UserLogin') }}">Existing User?</a>
+        </div>
+        </center>
+      </form>
+    </div>
+  </body>
+</html>
